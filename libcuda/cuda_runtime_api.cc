@@ -2060,7 +2060,7 @@ static int get_app_cuda_version() {
         app_cuda_version = atoi(buf);
     }
     fclose(cmd);
-    //app_cuda_version = 4;//myedit
+    app_cuda_version = 4;//myedit
     if ( app_cuda_version == 0 ) {
         printf( "Error - Cannot detect the app's CUDA version.\n" );
         exit(1);
@@ -2554,6 +2554,7 @@ void** CUDARTAPI __cudaRegisterFatBinary( void *fatCubin )
         // with a newer version of CUDA to run apps compiled with older versions of
         // CUDA. This is especially useful for PTXPLUS execution.
         int app_cuda_version = get_app_cuda_version();
+        app_cuda_version = 4;//myedit
         assert( app_cuda_version == CUDART_VERSION / 1000  && "The app must be compiled with same major version as the simulator." );//myedit
         const char* filename;
 #if CUDART_VERSION < 6000
